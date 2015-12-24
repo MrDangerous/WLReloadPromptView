@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A3CD03E71C2BE5CF0079E266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD03E61C2BE5CF0079E266 /* AppDelegate.swift */; };
+		A3CD03E91C2BE5CF0079E266 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD03E81C2BE5CF0079E266 /* ViewController.swift */; };
+		A3CD03EC1C2BE5CF0079E266 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3CD03EA1C2BE5CF0079E266 /* Main.storyboard */; };
+		A3CD03EE1C2BE5CF0079E266 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3CD03ED1C2BE5CF0079E266 /* Assets.xcassets */; };
+		A3CD03F11C2BE5D00079E266 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3CD03EF1C2BE5CF0079E266 /* LaunchScreen.storyboard */; };
+		A3CD03FC1C2BE5D00079E266 /* WLReloadPromptViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD03FB1C2BE5D00079E266 /* WLReloadPromptViewTests.swift */; };
+		A3CD04071C2BE5D00079E266 /* WLReloadPromptViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD04061C2BE5D00079E266 /* WLReloadPromptViewUITests.swift */; };
+		A3CD04191C2BE60B0079E266 /* WLReloadPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CD04181C2BE60B0079E266 /* WLReloadPromptView.m */; };
+		A3CD041E1C2BE6DD0079E266 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD041D1C2BE6DD0079E266 /* BaseViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A3CD03F81C2BE5D00079E266 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3CD03DB1C2BE5CF0079E266 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3CD03E21C2BE5CF0079E266;
+			remoteInfo = WLReloadPromptView;
+		};
+		A3CD04031C2BE5D00079E266 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3CD03DB1C2BE5CF0079E266 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3CD03E21C2BE5CF0079E266;
+			remoteInfo = WLReloadPromptView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A3CD03E31C2BE5CF0079E266 /* WLReloadPromptView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WLReloadPromptView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3CD03E61C2BE5CF0079E266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A3CD03E81C2BE5CF0079E266 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A3CD03EB1C2BE5CF0079E266 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A3CD03ED1C2BE5CF0079E266 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A3CD03F01C2BE5CF0079E266 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A3CD03F21C2BE5D00079E266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3CD03F71C2BE5D00079E266 /* WLReloadPromptViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WLReloadPromptViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3CD03FB1C2BE5D00079E266 /* WLReloadPromptViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLReloadPromptViewTests.swift; sourceTree = "<group>"; };
+		A3CD03FD1C2BE5D00079E266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3CD04021C2BE5D00079E266 /* WLReloadPromptViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WLReloadPromptViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3CD04061C2BE5D00079E266 /* WLReloadPromptViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLReloadPromptViewUITests.swift; sourceTree = "<group>"; };
+		A3CD04081C2BE5D00079E266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3CD04141C2BE5E90079E266 /* WLReloadPromptView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WLReloadPromptView-Bridging-Header.h"; sourceTree = "<group>"; };
+		A3CD04171C2BE60B0079E266 /* WLReloadPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLReloadPromptView.h; sourceTree = "<group>"; };
+		A3CD04181C2BE60B0079E266 /* WLReloadPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLReloadPromptView.m; sourceTree = "<group>"; };
+		A3CD041D1C2BE6DD0079E266 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A3CD03E01C2BE5CF0079E266 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3CD03F41C2BE5D00079E266 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3CD03FF1C2BE5D00079E266 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A3CD03DA1C2BE5CF0079E266 = {
+			isa = PBXGroup;
+			children = (
+				A3CD03E51C2BE5CF0079E266 /* WLReloadPromptView */,
+				A3CD03FA1C2BE5D00079E266 /* WLReloadPromptViewTests */,
+				A3CD04051C2BE5D00079E266 /* WLReloadPromptViewUITests */,
+				A3CD03E41C2BE5CF0079E266 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A3CD03E41C2BE5CF0079E266 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3CD03E31C2BE5CF0079E266 /* WLReloadPromptView.app */,
+				A3CD03F71C2BE5D00079E266 /* WLReloadPromptViewTests.xctest */,
+				A3CD04021C2BE5D00079E266 /* WLReloadPromptViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3CD03E51C2BE5CF0079E266 /* WLReloadPromptView */ = {
+			isa = PBXGroup;
+			children = (
+				A3CD04171C2BE60B0079E266 /* WLReloadPromptView.h */,
+				A3CD04181C2BE60B0079E266 /* WLReloadPromptView.m */,
+				A3CD03E61C2BE5CF0079E266 /* AppDelegate.swift */,
+				A3CD03E81C2BE5CF0079E266 /* ViewController.swift */,
+				A3CD041D1C2BE6DD0079E266 /* BaseViewController.swift */,
+				A3CD03EA1C2BE5CF0079E266 /* Main.storyboard */,
+				A3CD03ED1C2BE5CF0079E266 /* Assets.xcassets */,
+				A3CD03EF1C2BE5CF0079E266 /* LaunchScreen.storyboard */,
+				A3CD03F21C2BE5D00079E266 /* Info.plist */,
+				A3CD04141C2BE5E90079E266 /* WLReloadPromptView-Bridging-Header.h */,
+			);
+			path = WLReloadPromptView;
+			sourceTree = "<group>";
+		};
+		A3CD03FA1C2BE5D00079E266 /* WLReloadPromptViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				A3CD03FB1C2BE5D00079E266 /* WLReloadPromptViewTests.swift */,
+				A3CD03FD1C2BE5D00079E266 /* Info.plist */,
+			);
+			path = WLReloadPromptViewTests;
+			sourceTree = "<group>";
+		};
+		A3CD04051C2BE5D00079E266 /* WLReloadPromptViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A3CD04061C2BE5D00079E266 /* WLReloadPromptViewUITests.swift */,
+				A3CD04081C2BE5D00079E266 /* Info.plist */,
+			);
+			path = WLReloadPromptViewUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A3CD03E21C2BE5CF0079E266 /* WLReloadPromptView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3CD040B1C2BE5D00079E266 /* Build configuration list for PBXNativeTarget "WLReloadPromptView" */;
+			buildPhases = (
+				A3CD03DF1C2BE5CF0079E266 /* Sources */,
+				A3CD03E01C2BE5CF0079E266 /* Frameworks */,
+				A3CD03E11C2BE5CF0079E266 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WLReloadPromptView;
+			productName = WLReloadPromptView;
+			productReference = A3CD03E31C2BE5CF0079E266 /* WLReloadPromptView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A3CD03F61C2BE5D00079E266 /* WLReloadPromptViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3CD040E1C2BE5D00079E266 /* Build configuration list for PBXNativeTarget "WLReloadPromptViewTests" */;
+			buildPhases = (
+				A3CD03F31C2BE5D00079E266 /* Sources */,
+				A3CD03F41C2BE5D00079E266 /* Frameworks */,
+				A3CD03F51C2BE5D00079E266 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A3CD03F91C2BE5D00079E266 /* PBXTargetDependency */,
+			);
+			name = WLReloadPromptViewTests;
+			productName = WLReloadPromptViewTests;
+			productReference = A3CD03F71C2BE5D00079E266 /* WLReloadPromptViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A3CD04011C2BE5D00079E266 /* WLReloadPromptViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3CD04111C2BE5D00079E266 /* Build configuration list for PBXNativeTarget "WLReloadPromptViewUITests" */;
+			buildPhases = (
+				A3CD03FE1C2BE5D00079E266 /* Sources */,
+				A3CD03FF1C2BE5D00079E266 /* Frameworks */,
+				A3CD04001C2BE5D00079E266 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A3CD04041C2BE5D00079E266 /* PBXTargetDependency */,
+			);
+			name = WLReloadPromptViewUITests;
+			productName = WLReloadPromptViewUITests;
+			productReference = A3CD04021C2BE5D00079E266 /* WLReloadPromptViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A3CD03DB1C2BE5CF0079E266 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = ZHWAYNE;
+				TargetAttributes = {
+					A3CD03E21C2BE5CF0079E266 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					A3CD03F61C2BE5D00079E266 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = A3CD03E21C2BE5CF0079E266;
+					};
+					A3CD04011C2BE5D00079E266 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = A3CD03E21C2BE5CF0079E266;
+					};
+				};
+			};
+			buildConfigurationList = A3CD03DE1C2BE5CF0079E266 /* Build configuration list for PBXProject "WLReloadPromptView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A3CD03DA1C2BE5CF0079E266;
+			productRefGroup = A3CD03E41C2BE5CF0079E266 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A3CD03E21C2BE5CF0079E266 /* WLReloadPromptView */,
+				A3CD03F61C2BE5D00079E266 /* WLReloadPromptViewTests */,
+				A3CD04011C2BE5D00079E266 /* WLReloadPromptViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A3CD03E11C2BE5CF0079E266 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3CD03F11C2BE5D00079E266 /* LaunchScreen.storyboard in Resources */,
+				A3CD03EE1C2BE5CF0079E266 /* Assets.xcassets in Resources */,
+				A3CD03EC1C2BE5CF0079E266 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3CD03F51C2BE5D00079E266 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3CD04001C2BE5D00079E266 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A3CD03DF1C2BE5CF0079E266 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3CD03E91C2BE5CF0079E266 /* ViewController.swift in Sources */,
+				A3CD041E1C2BE6DD0079E266 /* BaseViewController.swift in Sources */,
+				A3CD03E71C2BE5CF0079E266 /* AppDelegate.swift in Sources */,
+				A3CD04191C2BE60B0079E266 /* WLReloadPromptView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3CD03F31C2BE5D00079E266 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3CD03FC1C2BE5D00079E266 /* WLReloadPromptViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3CD03FE1C2BE5D00079E266 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3CD04071C2BE5D00079E266 /* WLReloadPromptViewUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A3CD03F91C2BE5D00079E266 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A3CD03E21C2BE5CF0079E266 /* WLReloadPromptView */;
+			targetProxy = A3CD03F81C2BE5D00079E266 /* PBXContainerItemProxy */;
+		};
+		A3CD04041C2BE5D00079E266 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A3CD03E21C2BE5CF0079E266 /* WLReloadPromptView */;
+			targetProxy = A3CD04031C2BE5D00079E266 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A3CD03EA1C2BE5CF0079E266 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3CD03EB1C2BE5CF0079E266 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A3CD03EF1C2BE5CF0079E266 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3CD03F01C2BE5CF0079E266 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A3CD04091C2BE5D00079E266 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A3CD040A1C2BE5D00079E266 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A3CD040C1C2BE5D00079E266 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = WLReloadPromptView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhwayne.WLReloadPromptView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WLReloadPromptView/WLReloadPromptView-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A3CD040D1C2BE5D00079E266 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = WLReloadPromptView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhwayne.WLReloadPromptView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WLReloadPromptView/WLReloadPromptView-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		A3CD040F1C2BE5D00079E266 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WLReloadPromptViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhwayne.WLReloadPromptViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WLReloadPromptView.app/WLReloadPromptView";
+			};
+			name = Debug;
+		};
+		A3CD04101C2BE5D00079E266 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WLReloadPromptViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhwayne.WLReloadPromptViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WLReloadPromptView.app/WLReloadPromptView";
+			};
+			name = Release;
+		};
+		A3CD04121C2BE5D00079E266 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = WLReloadPromptViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhwayne.WLReloadPromptViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WLReloadPromptView;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		A3CD04131C2BE5D00079E266 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = WLReloadPromptViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhwayne.WLReloadPromptViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WLReloadPromptView;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A3CD03DE1C2BE5CF0079E266 /* Build configuration list for PBXProject "WLReloadPromptView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3CD04091C2BE5D00079E266 /* Debug */,
+				A3CD040A1C2BE5D00079E266 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3CD040B1C2BE5D00079E266 /* Build configuration list for PBXNativeTarget "WLReloadPromptView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3CD040C1C2BE5D00079E266 /* Debug */,
+				A3CD040D1C2BE5D00079E266 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A3CD040E1C2BE5D00079E266 /* Build configuration list for PBXNativeTarget "WLReloadPromptViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3CD040F1C2BE5D00079E266 /* Debug */,
+				A3CD04101C2BE5D00079E266 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A3CD04111C2BE5D00079E266 /* Build configuration list for PBXNativeTarget "WLReloadPromptViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3CD04121C2BE5D00079E266 /* Debug */,
+				A3CD04131C2BE5D00079E266 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A3CD03DB1C2BE5CF0079E266 /* Project object */;
+}
