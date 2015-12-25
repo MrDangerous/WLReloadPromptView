@@ -19,7 +19,7 @@
 
 ## 用法示例
 
-```swift
+```objc
 reloadPromptView = WLReloadPromptView(coveredView: self.view, reloadActions: {
     // 这里添加你的重新加载相关代码
     // 加载完毕后消失
@@ -40,7 +40,7 @@ reloadPromptView.appear();
 
 在 Podfile 添加以下代码快速集成
 
-```
+```bash
 platform :ios, '7.0'
 pod 'WLReloadPromptView'
 ```
