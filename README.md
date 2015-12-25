@@ -38,7 +38,9 @@ reloadPromptView.appear();
 
 ### CocoaPods
 
-在Podfile添加以下代码快速集成
+在 Podfile 添加以下代码快速集成
 
+```
+platform :ios, '7.0'
 pod 'WLReloadPromptView'
-
+```
