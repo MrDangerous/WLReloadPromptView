@@ -1,4 +1,4 @@
-# WLReloadPromptView
+## WLReloadPromptView
 一枚弱网络环境下重新加载视图控件, OC 所写, 支持 Swift 和 Storyboard 实时预览.
 
 ![](https://img.shields.io/badge/License-MIT-0099ff.svg)
@@ -17,7 +17,7 @@
 * ARC
 
 
-# 用法示例
+## 用法示例
 
 ```swift
 reloadPromptView = WLReloadPromptView(coveredView: self.view, reloadActions: {
