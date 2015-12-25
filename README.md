@@ -40,7 +40,7 @@ reloadPromptView.appear();
 
 在 Podfile 添加以下代码快速集成
 
-```
+```bash
 platform :ios, '7.0'
 pod 'WLReloadPromptView'
 ```
