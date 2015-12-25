@@ -19,7 +19,7 @@
 
 ## 用法示例
 
-```swift
+```objc
 reloadPromptView = WLReloadPromptView(coveredView: self.view, reloadActions: {
     // 这里添加你的重新加载相关代码
     // 加载完毕后消失
