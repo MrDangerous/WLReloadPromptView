@@ -1,4 +1,4 @@
-## WLReloadPromptView
+# WLReloadPromptView
 一枚弱网络环境下重新加载视图控件, OC 所写, 支持 Swift 和 Storyboard 实时预览.
 
 ![](https://img.shields.io/badge/License-MIT-0099ff.svg)
@@ -10,7 +10,7 @@
 <img src="images/2.PNG" width="320" style="border:1px solid black" />
 
 
-# 软件要求
+## 软件要求
 
 * Xcode 7
 * iOS 7.0 及以上
