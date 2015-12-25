@@ -30,14 +30,10 @@ class ViewController: BaseViewController {
             }).resume()
         }
         
-        let time: NSTimeInterval = 1.0
-        let delay = dispatch_time(DISPATCH_TIME_NOW,
-            Int64(time * Double(NSEC_PER_SEC)))
-        dispatch_after(delay, dispatch_get_main_queue()) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
             self.activityIndicatorView.hidden = true;
             self.shouldReload = true;
         }
-        
     }
 
 
