@@ -1,8 +1,8 @@
 //
-//  WLReloadPromptViewUITests.swift
-//  WLReloadPromptViewUITests
+//  ViewController.swift
+//  WLReloadPromptView
 //
-//  Created by ByRongInvest on 15/12/24.
+//  Created by Wayne on 15/12/24.
 //  Copyright © 2015年 ZHWAYNE. All rights reserved.
 //
 

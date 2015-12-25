@@ -2,21 +2,22 @@
 //  ViewController.swift
 //  WLReloadPromptView
 //
-//  Created by ByRongInvest on 15/12/24.
+//  Created by Wayne on 15/12/24.
 //  Copyright © 2015年 ZHWAYNE. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: BaseViewController {
+class ViewController: UIViewController {
     
     @IBOutlet weak var iamgeView: UIImageView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    var reloadPromptView: WLReloadPromptView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.reloadAction = {
+        reloadPromptView = WLReloadPromptView(coveredView: self.view, reloadActions: {
             self.activityIndicatorView.hidden = false;
             self.activityIndicatorView.startAnimating();
             self.view.bringSubviewToFront(self.activityIndicatorView)
@@ -25,14 +26,15 @@ class ViewController: BaseViewController {
                 dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                     self.iamgeView.image              = UIImage(data: data!)
                     self.activityIndicatorView.hidden = true
-                    self.shouldReload                 = false;
+                    self.reloadPromptView.disappear()
                 })
             }).resume()
-        }
+        })
         
+        // 模拟网络不畅
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
             self.activityIndicatorView.hidden = true;
-            self.shouldReload = true;
+            self.reloadPromptView.appear()
         }
     }
 

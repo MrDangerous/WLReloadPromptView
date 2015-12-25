@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A34CD72B1C2D0C3000F4A354 /* WLReloadPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = A34CD72A1C2D0C3000F4A354 /* WLReloadPromptView.m */; };
 		A3CD03E71C2BE5CF0079E266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD03E61C2BE5CF0079E266 /* AppDelegate.swift */; };
 		A3CD03E91C2BE5CF0079E266 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD03E81C2BE5CF0079E266 /* ViewController.swift */; };
 		A3CD03EC1C2BE5CF0079E266 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3CD03EA1C2BE5CF0079E266 /* Main.storyboard */; };
@@ -14,8 +15,6 @@
 		A3CD03F11C2BE5D00079E266 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3CD03EF1C2BE5CF0079E266 /* LaunchScreen.storyboard */; };
 		A3CD03FC1C2BE5D00079E266 /* WLReloadPromptViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD03FB1C2BE5D00079E266 /* WLReloadPromptViewTests.swift */; };
 		A3CD04071C2BE5D00079E266 /* WLReloadPromptViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD04061C2BE5D00079E266 /* WLReloadPromptViewUITests.swift */; };
-		A3CD04191C2BE60B0079E266 /* WLReloadPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CD04181C2BE60B0079E266 /* WLReloadPromptView.m */; };
-		A3CD041E1C2BE6DD0079E266 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD041D1C2BE6DD0079E266 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A34CD7291C2D0C3000F4A354 /* WLReloadPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLReloadPromptView.h; sourceTree = "<group>"; };
+		A34CD72A1C2D0C3000F4A354 /* WLReloadPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLReloadPromptView.m; sourceTree = "<group>"; };
 		A3CD03E31C2BE5CF0079E266 /* WLReloadPromptView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WLReloadPromptView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3CD03E61C2BE5CF0079E266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3CD03E81C2BE5CF0079E266 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,9 +51,6 @@
 		A3CD04061C2BE5D00079E266 /* WLReloadPromptViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLReloadPromptViewUITests.swift; sourceTree = "<group>"; };
 		A3CD04081C2BE5D00079E266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3CD04141C2BE5E90079E266 /* WLReloadPromptView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WLReloadPromptView-Bridging-Header.h"; sourceTree = "<group>"; };
-		A3CD04171C2BE60B0079E266 /* WLReloadPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLReloadPromptView.h; sourceTree = "<group>"; };
-		A3CD04181C2BE60B0079E266 /* WLReloadPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLReloadPromptView.m; sourceTree = "<group>"; };
-		A3CD041D1C2BE6DD0079E266 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +78,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A34CD7281C2D0C3000F4A354 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A34CD7291C2D0C3000F4A354 /* WLReloadPromptView.h */,
+				A34CD72A1C2D0C3000F4A354 /* WLReloadPromptView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		A3CD03DA1C2BE5CF0079E266 = {
 			isa = PBXGroup;
 			children = (
+				A34CD7281C2D0C3000F4A354 /* Classes */,
 				A3CD03E51C2BE5CF0079E266 /* WLReloadPromptView */,
 				A3CD03FA1C2BE5D00079E266 /* WLReloadPromptViewTests */,
 				A3CD04051C2BE5D00079E266 /* WLReloadPromptViewUITests */,
@@ -103,11 +111,8 @@
 		A3CD03E51C2BE5CF0079E266 /* WLReloadPromptView */ = {
 			isa = PBXGroup;
 			children = (
-				A3CD04171C2BE60B0079E266 /* WLReloadPromptView.h */,
-				A3CD04181C2BE60B0079E266 /* WLReloadPromptView.m */,
 				A3CD03E61C2BE5CF0079E266 /* AppDelegate.swift */,
 				A3CD03E81C2BE5CF0079E266 /* ViewController.swift */,
-				A3CD041D1C2BE6DD0079E266 /* BaseViewController.swift */,
 				A3CD03EA1C2BE5CF0079E266 /* Main.storyboard */,
 				A3CD03ED1C2BE5CF0079E266 /* Assets.xcassets */,
 				A3CD03EF1C2BE5CF0079E266 /* LaunchScreen.storyboard */,
@@ -267,9 +272,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3CD03E91C2BE5CF0079E266 /* ViewController.swift in Sources */,
-				A3CD041E1C2BE6DD0079E266 /* BaseViewController.swift in Sources */,
 				A3CD03E71C2BE5CF0079E266 /* AppDelegate.swift in Sources */,
-				A3CD04191C2BE60B0079E266 /* WLReloadPromptView.m in Sources */,
+				A34CD72B1C2D0C3000F4A354 /* WLReloadPromptView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +505,7 @@
 				A3CD040D1C2BE5D00079E266 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A3CD040E1C2BE5D00079E266 /* Build configuration list for PBXNativeTarget "WLReloadPromptViewTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +514,7 @@
 				A3CD04101C2BE5D00079E266 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A3CD04111C2BE5D00079E266 /* Build configuration list for PBXNativeTarget "WLReloadPromptViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +523,7 @@
 				A3CD04131C2BE5D00079E266 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
