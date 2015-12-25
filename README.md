@@ -32,3 +32,13 @@ reloadPromptView.appear();
 > 具体使用参见仓库中的 Demo.
 
 如果需要在项目中每个 View Controller 中实现此功能，建议重载 UIViewController 并将此控件添加至父类控制器中，或者考虑 Method Swizzing.
+
+
+## 安装
+
+### CocoaPods
+
+在Podfile添加以下代码快速集成
+
+pod 'WLReloadPromptView'
+
