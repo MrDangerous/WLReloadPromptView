@@ -12,219 +12,129 @@ char * const setNeedsDisplayContext = "setNeedsDisplay";
 
 @interface WLReloadPromptView ()
 
-@property (strong, nonatomic) UIColor *tempBorderFillColor;
-@property (strong, nonatomic) UIView  *coverdView;  // general is superview
+@property (nullable, weak, nonatomic) id<WLReloadPromptViewDelegate> rp_delegate;
+@property (nullable, weak, nonatomic) id<WLReloadPromptViewDataSource> rp_dataSource;
+
+@property (weak, nonatomic) UIView  *coverdView;  // general is superview
+@property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) UILabel  *descriptionLabel;
 
 @end
 
 @implementation WLReloadPromptView
-{
-    CGRect buttonRect;
+
+- (instancetype)initWithViewController:(UIViewController<WLReloadPromptViewDelegate,WLReloadPromptViewDataSource> *)viewController {
+    return [self initWithViewController:viewController delegate:viewController dataSource:viewController];
 }
 
-- (instancetype)initWithCoveredView:(UIView *)view reloadActions:(void (^)(void))actions {
-    self = [super initWithFrame:view.bounds];
-    if (self) {
-        self.coverdView    = view;
-        self.reloadActions = actions;
-        [self initialize];
-    }
-    
-    return self;
-}
-
-- (instancetype)initWithCoveredView:(UIView *)view {
-    self = [[[self class] alloc] initWithCoveredView:view reloadActions:nil];
-    return self;
-}
-
-- (instancetype)init {
-    NSCAssert(NO, @"Please use `-initWithCoveredView:reloadActions:`");
-    return nil;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
+- (instancetype)initWithViewController:(UIViewController *)viewController delegate:(id<WLReloadPromptViewDelegate>)delegate dataSource:(id<WLReloadPromptViewDataSource>)dataSource {
+    if (self = [super initWithFrame:CGRectZero]) {
+        _coverdView = viewController.view;
+        _rp_delegate = delegate;
+        _rp_dataSource = dataSource;
         [self initialize];
     }
     return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
-        [self initialize];
-        [self setNeedsDisplay];
-    }
-    
-    return self;
-}
-
-- (void)dealloc {
-    @try {
-        [self removeObserver:self forKeyPath:@"ringColor"];
-        [self removeObserver:self forKeyPath:@"WIFIColor"];
-        [self removeObserver:self forKeyPath:@"promptTextColor"];
-        [self removeObserver:self forKeyPath:@"reloadTitleColor"];
-        [self removeObserver:self forKeyPath:@"borderColor"];
-        [self removeObserver:self forKeyPath:@"borderFillColor"];
-        [self removeObserver:self forKeyPath:@"promptText"];
-        [self removeObserver:self forKeyPath:@"reloadTitle"];
-        [self removeObserver:self forKeyPath:@"borderRadius"];
-    }
-    @catch (NSException *exception) {
-        // Do nothing here.
-    }
 }
 
 - (void)initialize {
-    _ringColor           = [UIColor colorWithRed:0.736 green:0.737 blue:0.721 alpha:1.000];
-    _WIFIColor           = [UIColor whiteColor];
-    _promptTextColor     = [UIColor lightGrayColor];
-    _reloadTitleColor    = [UIColor darkGrayColor];
-    _borderColor         = [UIColor darkGrayColor];
-    _borderFillColor     = [UIColor whiteColor];
-    _promptText          = @"您的设备网络不太顺畅哦~";
-    _reloadTitle         = @"重新加载";
-    _borderRadius        = 4;
     self.backgroundColor = [UIColor whiteColor];
+    _imageView = [[UIImageView alloc] init];
+    _imageView.contentMode = UIViewContentModeScaleAspectFill;
+    _imageView.clipsToBounds = YES;
+    [self addSubview:_imageView];
     
-    [self addObserver:self forKeyPath:@"ringColor" options:0x01 context:setNeedsDisplayContext];
-    [self addObserver:self forKeyPath:@"WIFIColor" options:0x01 context:setNeedsDisplayContext];
-    [self addObserver:self forKeyPath:@"promptTextColor" options:0x01 context:setNeedsDisplayContext];
-    [self addObserver:self forKeyPath:@"reloadTitleColor" options:0x01 context:setNeedsDisplayContext];
-    [self addObserver:self forKeyPath:@"borderColor" options:0x01 context:setNeedsDisplayContext];
-    [self addObserver:self forKeyPath:@"borderFillColor" options:0x01 context:setNeedsDisplayContext];
-    [self addObserver:self forKeyPath:@"promptText" options:0x01 context:setNeedsDisplayContext];
-    [self addObserver:self forKeyPath:@"reloadTitle" options:0x01 context:setNeedsDisplayContext];
-    [self addObserver:self forKeyPath:@"borderRadius" options:0x01 context:setNeedsDisplayContext];
-}
-
-
-#pragma mark - KVO
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if (!strcmp(context, setNeedsDisplayContext)) {
-        [self setNeedsDisplay];
-    }
-}
-
-
-#pragma mark - Override
-
-- (void)drawRect:(CGRect)rect {
-    [super drawRect:rect];
+    _descriptionLabel = [[UILabel alloc] init];
+    _descriptionLabel.numberOfLines = 0;
+    _descriptionLabel.textColor = [UIColor lightGrayColor];
+    _descriptionLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:_descriptionLabel];
     
-    // Drawing code
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    
-    // 一个圆
-    CGPoint point = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect) - 60);
-    CGRect frame  = convert_points_to_the_rect(point, 60);
-
-    CGContextSetLineWidth(ctx, 1);
-    [[UIColor clearColor] setFill];
-    CGContextFillRect(ctx, frame);
-    CGContextAddEllipseInRect(ctx, frame);
-    [_ringColor setFill];
-    CGContextFillPath(ctx);
-
-    // WIFI logo
-    point = CGPointMake(point.x, point.y + 30);
-    UIBezierPath *path;
-    
-    CGContextSetLineWidth(ctx, 6.0);
-    CGContextSetLineCap(ctx, kCGLineCapRound);
-    CGContextSetStrokeColorWithColor(ctx, _WIFIColor.CGColor);
-
-    for (int i = 0; i < 4; ++i) {
-        if (i < 3) {
-            path = [UIBezierPath bezierPathWithArcCenter:point radius:60 - i * 20 startAngle:M_PI * 1.24  endAngle:M_PI * 1.76  clockwise:YES];
-            CGContextAddPath(ctx, path.CGPath);
-            CGContextStrokePath(ctx);
-            continue;
-        }
-        
-        path = [UIBezierPath bezierPathWithArcCenter:point radius:2 startAngle:M_PI * 0  endAngle:M_PI * 2  clockwise:YES];
-        CGContextAddPath(ctx, path.CGPath);
-        CGContextStrokePath(ctx);
-    }
-
-    // 提示文字
-    NSString *text               = nil;
-    NSDictionary *textAttributes = nil;
-    CGSize textSize              = CGSizeZero;
-    CGRect textRect              = CGRectZero;
-    
-    point          = CGPointMake(point.x, point.y + 60);
-    text           = _promptText;
-    textAttributes = @{NSForegroundColorAttributeName: _promptTextColor,
-                        NSFontAttributeName: [UIFont systemFontOfSize:16]};
-    textSize       = [text sizeWithAttributes:textAttributes];
-    textRect       = CGRectMake(point.x - textSize.width / 2, point.y,
-                                textSize.width, textSize.height);
-    [text drawInRect:textRect withAttributes:textAttributes];
-
-    // 点击按钮（实际上只是显示一个按钮的样子，点击事件交由 Touch end 处理）
-    point          = CGPointMake(point.x, point.y + 50);
-    text           = _reloadTitle;
-    textAttributes = @{NSForegroundColorAttributeName: _reloadTitleColor,
-                       NSFontAttributeName: [UIFont systemFontOfSize:15]};
-    textSize       = [text sizeWithAttributes:textAttributes];
-    textRect       = CGRectMake(point.x - textSize.width / 2, point.y,
-                                textSize.width, textSize.height);
-    
-    // 按钮边框
-    buttonRect = CGRectMake(CGRectGetMinX(textRect) - 40, CGRectGetMinY(textRect) - 8,
-                            CGRectGetWidth(textRect) + 80, CGRectGetHeight(textRect) + 16);
-    path       = [UIBezierPath bezierPathWithRoundedRect:buttonRect cornerRadius:_borderRadius];
-    [_borderColor setStroke];
-    [_borderFillColor setFill];
-    CGContextSetLineWidth(ctx, 1);
-    CGContextAddPath(ctx, path.CGPath);
-    CGContextDrawPath(ctx, kCGPathFillStroke);
-    
-    [text drawInRect:textRect withAttributes:textAttributes];
+    [self update];
 }
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    self.borderFillColor = _tempBorderFillColor;
-    if (CGRectContainsPoint(CGRectInset(buttonRect, -20, -20), [touches.anyObject locationInView:self]) &&
-        self.reloadActions) {
-        self.reloadActions();
-        
-        self.userInteractionEnabled = NO;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.userInteractionEnabled = YES;
-        });
-    }
-}
-
-- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self touchesEnded:touches withEvent:event];
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    _tempBorderFillColor = self.borderFillColor;
-    if (CGRectContainsPoint(buttonRect, [touches.anyObject locationInView:self])) {
-        self.borderFillColor = lightColor(self.borderFillColor, -0.04);
-    }
-}
-
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    if (!CGRectContainsPoint(CGRectInset(buttonRect, -20, -20), [touches.anyObject locationInView:self])) {
-        self.borderFillColor = _tempBorderFillColor;
-    }
-}
-
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    if (CGRectContainsPoint(buttonRect, point)) return YES;
-    return NO;
-}
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    [self setNeedsDisplay];
+    
+    CGFloat contentHeight = 0;
+    const CGFloat contentWidth = _coverdView.bounds.size.width * 0.8;
+    UIImage *image = nil;
+    NSAttributedString *string = nil;
+    UIControl *reloadButton = [self viewWithTag:'_btn'];
+    if (reloadButton) {
+        [reloadButton removeFromSuperview];
+        reloadButton = nil;
+    }
+    
+    const CGSize imageSize = CGSizeMake(120, 120);
+    CGSize stringSize = CGSizeMake(280, 999);
+    
+    
+    if ([_rp_dataSource respondsToSelector:@selector(imageInReloadPromptView:)]) {
+        image = [_rp_dataSource imageInReloadPromptView:self];
+    }
+    
+    
+    if ([_rp_dataSource respondsToSelector:@selector(descriptionInReloadPromptView:)]) {
+        string = [_rp_dataSource descriptionInReloadPromptView:self];
+    }
+    
+    if ([_rp_dataSource respondsToSelector:@selector(buttonInReloadPromptView:)]) {
+        reloadButton = [_rp_dataSource buttonInReloadPromptView:self];
+        reloadButton.tag = '_btn';
+        [reloadButton addTarget:self action:@selector(reloadbuttonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    
+    if (image) {
+        contentHeight += imageSize.height;
+    }
+    
+    if (string) {
+        if (image) {
+            contentHeight += 40;
+        }
+        stringSize = [string boundingRectWithSize:stringSize options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+        contentHeight += stringSize.height;
+    }
+    
+    if (reloadButton) {
+        if (string) {
+            contentHeight += 30;
+        }
+        contentHeight += reloadButton.bounds.size.height;
+    }
+    
+    CGFloat y = (_coverdView.bounds.size.height - contentHeight) / 2 - 20;
+    const CGFloat x = (_coverdView.bounds.size.width - contentWidth) / 2;
+    if (image) {
+        _imageView.image = image;
+        _imageView.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
+        _imageView.center = CGPointMake(_coverdView.bounds.size.width / 2, y + imageSize.height / 2);
+        y += imageSize.height;
+    }
+    
+    if (string) {
+        if (image) {
+            y += 40;
+        }
+        _descriptionLabel.attributedText = string;
+        _descriptionLabel.frame = CGRectMake(x, y, _coverdView.bounds.size.width - 2 * x, stringSize.height);
+        y += _descriptionLabel.frame.size.height;
+    }
+    
+    if (reloadButton) {
+        if (string) {
+            y += 30;
+        }
+        reloadButton.frame = CGRectMake(0, y, reloadButton.bounds.size.width, reloadButton.bounds.size.height);
+        reloadButton.center = CGPointMake(_coverdView.bounds.size.width / 2, reloadButton.center.y);
+        [self addSubview:reloadButton];
+    }
 }
+
+
 
 
 #pragma mark - Public methods
@@ -237,6 +147,7 @@ char * const setNeedsDisplayContext = "setNeedsDisplay";
     self.hidden = NO;
     self.alpha  = 1;
     [self.superview bringSubviewToFront:self];
+    [self update];
 }
 
 - (void)disappear {
@@ -245,41 +156,104 @@ char * const setNeedsDisplayContext = "setNeedsDisplay";
     self.hidden = YES;
     self.alpha  = 0;
     [self.superview insertSubview:self atIndex:0];
+    [self update];
+}
+
+- (void)update {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.frame = self.superview.bounds;
+        [self layoutIfNeeded];
+    });
+}
+
+#pragma mark - Actions
+
+- (void)reloadbuttonTouchUpInside:(UIControl *)sender {
+    if ([_rp_delegate reloadPromptViewAllowedReload] != YES) {
+        return;
+    }
+    
+    if ([_rp_delegate respondsToSelector:@selector(didTapedReloadButtonInReloadPromptView:)]) {
+        [_rp_delegate didTapedReloadButtonInReloadPromptView:self];
+    }
 }
 
 #pragma mark - Private methods
 
-CGRect convert_points_to_the_rect(CGPoint point, CGFloat radius)
-{
-    CGRect rect     = CGRectZero;
-    rect.size.width = rect.size.height = radius * 2;
-    rect.origin.x   = point.x - radius;
-    rect.origin.y   = point.y - radius;
-    
-    return rect;
-}
-
-UIColor* lightColor(UIColor *color, CGFloat value)
-{
-    if (value < -1) value = -1;
-    else if (value > 1) value = 1;
-    else if (value == 0) return color;
-    
-    value = 1 + value;
-    
-    CGFloat h=0,s=0,b=0,a=0;
-    [color getHue:&h saturation:&s brightness:&b alpha:&a];
-    
-    NSDictionary *HSBA = @{@"HSBA-h": @(h),
-                           @"HSBA-s": @(s),
-                           @"HSBA-b": @(b * value),
-                           @"HSBA-a": @(a)};
-    
-    return [UIColor colorWithHue:[HSBA[@"HSBA-h"] doubleValue]
-                      saturation:[HSBA[@"HSBA-s"] doubleValue]
-                      brightness:[HSBA[@"HSBA-b"] doubleValue]
-                           alpha:[HSBA[@"HSBA-a"] doubleValue]];
-}
+//- (UIImage *)drawDefaultImageWithSize:(CGSize)size {
+//    UIGraphicsBeginImageContext(size);
+//    // Drawing code
+//    CGContextRef ctx = UIGraphicsGetCurrentContext();
+//    
+//    // 一个圆
+//    CGPoint point = CGPointMake(size.width / 2, size.height / 2);
+//    CGRect frame  = convert_points_to_the_rect(point, size.width / 2);
+//    
+//    CGContextSetLineWidth(ctx, 1);
+//    [[UIColor clearColor] setFill];
+//    CGContextFillRect(ctx, frame);
+//    CGContextAddEllipseInRect(ctx, frame);
+//    [[UIColor lightGrayColor] setFill];
+//    CGContextFillPath(ctx);
+//    
+//    // WIFI logo
+//    point = CGPointMake(point.x, point.y + 30);
+//    UIBezierPath *path;
+//    
+//    CGContextSetLineWidth(ctx, 6.0);
+//    CGContextSetLineCap(ctx, kCGLineCapRound);
+//    CGContextSetStrokeColorWithColor(ctx, [UIColor whiteColor].CGColor);
+//    
+//    for (int i = 0; i < 4; ++i) {
+//        if (i < 3) {
+//            path = [UIBezierPath bezierPathWithArcCenter:point radius:60 - i * 20 startAngle:M_PI * 1.24  endAngle:M_PI * 1.76  clockwise:YES];
+//            CGContextAddPath(ctx, path.CGPath);
+//            CGContextStrokePath(ctx);
+//            continue;
+//        }
+//        
+//        path = [UIBezierPath bezierPathWithArcCenter:point radius:2 startAngle:M_PI * 0  endAngle:M_PI * 2  clockwise:YES];
+//        CGContextAddPath(ctx, path.CGPath);
+//        CGContextStrokePath(ctx);
+//    }
+//    
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    return image;
+//}
+//
+//
+//CGRect convert_points_to_the_rect(CGPoint point, CGFloat radius)
+//{
+//    CGRect rect     = CGRectZero;
+//    rect.size.width = rect.size.height = radius * 2;
+//    rect.origin.x   = point.x - radius;
+//    rect.origin.y   = point.y - radius;
+//    
+//    return rect;
+//}
+//
+//UIColor* lightColor(UIColor *color, CGFloat value)
+//{
+//    if (value < -1) value = -1;
+//    else if (value > 1) value = 1;
+//    else if (value == 0) return color;
+//    
+//    value = 1 + value;
+//    
+//    CGFloat h=0,s=0,b=0,a=0;
+//    [color getHue:&h saturation:&s brightness:&b alpha:&a];
+//    
+//    NSDictionary *HSBA = @{@"HSBA-h": @(h),
+//                           @"HSBA-s": @(s),
+//                           @"HSBA-b": @(b * value),
+//                           @"HSBA-a": @(a)};
+//    
+//    return [UIColor colorWithHue:[HSBA[@"HSBA-h"] doubleValue]
+//                      saturation:[HSBA[@"HSBA-s"] doubleValue]
+//                      brightness:[HSBA[@"HSBA-b"] doubleValue]
+//                           alpha:[HSBA[@"HSBA-a"] doubleValue]];
+//}
 
 
 @end
